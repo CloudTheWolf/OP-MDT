@@ -19,8 +19,9 @@ export function SiteHeader() {
     useEffect(() => {
         const fetchDutyTime = async () => {
             try {
-                console.log(user)
-                const res = await fetch(`/api/time/${user?.characterId}`, { credentials: 'include' })
+
+                const res = await fetch(`/api/pd/time/${user?.characterId}`, { credentials: 'include' })
+
                 if (!res.ok) throw new Error('Failed to fetch duty time')
 
                 const data = await res.json()
