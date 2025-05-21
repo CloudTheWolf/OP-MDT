@@ -1,0 +1,2910 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "5",
+  "dialect": "mysql",
+  "tables": {
+    "announcements": {
+      "name": "announcements",
+      "columns": {
+        "announcement_id": {
+          "autoincrement": true,
+          "name": "announcement_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "type",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "announcement": {
+          "autoincrement": false,
+          "name": "announcement",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_by": {
+          "autoincrement": false,
+          "name": "added_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_date_time": {
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "expire_on": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "expire_on",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {
+        "announcement_id": {
+          "name": "announcement_id",
+          "columns": [
+            "announcement_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "characters": {
+      "name": "characters",
+      "columns": {
+        "character_id": {
+          "autoincrement": true,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "first_name": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "first_name",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "last_name": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "last_name",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "gender": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "gender",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "job_name": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "job_name",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "department_name": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "department_name",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "position_name": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "position_name",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "date_of_birth": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "date_of_birth",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone_number": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "phone_number",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "license_identifier": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "license_identifier",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "mugshot": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "mugshot",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {
+        "idx_character_id": {
+          "name": "idx_character_id",
+          "columns": [
+            "character_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "character_expungements": {
+      "name": "character_expungements",
+      "columns": {
+        "expungement_id": {
+          "autoincrement": true,
+          "name": "expungement_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "character_id": {
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "expungement_note": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "expungement_note",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "expungement_date": {
+          "autoincrement": false,
+          "name": "expungement_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_by": {
+          "autoincrement": false,
+          "name": "added_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_date_time": {
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "expungement_id": {
+          "name": "expungement_id",
+          "columns": [
+            "expungement_id"
+          ]
+        }
+      }
+    },
+    "character_notes": {
+      "name": "character_notes",
+      "columns": {
+        "note_id": {
+          "autoincrement": true,
+          "name": "note_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "character_id": {
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "character_note": {
+          "autoincrement": false,
+          "name": "character_note",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "default": "''general''",
+          "autoincrement": false,
+          "name": "type",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "added_by": {
+          "autoincrement": false,
+          "name": "added_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_date_time": {
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "note_id": {
+          "name": "note_id",
+          "columns": [
+            "note_id"
+          ]
+        }
+      }
+    },
+    "character_pictures": {
+      "name": "character_pictures",
+      "columns": {
+        "picture_id": {
+          "autoincrement": true,
+          "name": "picture_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "character_id": {
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "character_picture_url": {
+          "autoincrement": false,
+          "name": "character_picture_url",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_by": {
+          "autoincrement": false,
+          "name": "added_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_date_time": {
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "picture_id": {
+          "name": "picture_id",
+          "columns": [
+            "picture_id"
+          ]
+        }
+      }
+    },
+    "character_points": {
+      "name": "character_points",
+      "columns": {
+        "reset_id": {
+          "autoincrement": true,
+          "name": "reset_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "character_id": {
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reset_date": {
+          "autoincrement": false,
+          "name": "reset_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_by": {
+          "autoincrement": false,
+          "name": "added_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_date_time": {
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "expungement_id": {
+          "name": "expungement_id",
+          "columns": [
+            "reset_id"
+          ]
+        }
+      }
+    },
+    "character_properties": {
+      "name": "character_properties",
+      "columns": {
+        "property_id": {
+          "autoincrement": true,
+          "name": "property_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "character_id": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "address": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "address",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "added_by": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "added_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "added_date_time": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "property_id": {
+          "name": "property_id",
+          "columns": [
+            "property_id"
+          ]
+        }
+      }
+    },
+    "character_tags": {
+      "name": "character_tags",
+      "columns": {
+        "tag_id": {
+          "autoincrement": true,
+          "name": "tag_id",
+          "type": "int(10) unsigned",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "character_id": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "value": {
+          "autoincrement": false,
+          "name": "value",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "background_color": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "background_color",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "text_color": {
+          "autoincrement": false,
+          "name": "text_color",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_by": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "added_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "added_date_time": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "tag_id": {
+          "name": "tag_id",
+          "columns": [
+            "tag_id"
+          ]
+        }
+      }
+    },
+    "character_vehicles": {
+      "name": "character_vehicles",
+      "columns": {
+        "vehicle_id": {
+          "autoincrement": true,
+          "name": "vehicle_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "owner_cid": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "owner_cid",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "name",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "plate": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "plate",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "photo": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "photo",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "added_by": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "added_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "added_date_time": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "vehicle_id": {
+          "name": "vehicle_id",
+          "columns": [
+            "vehicle_id"
+          ]
+        }
+      }
+    },
+    "character_warrants_bolos": {
+      "name": "character_warrants_bolos",
+      "columns": {
+        "id": {
+          "autoincrement": true,
+          "name": "id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "character_id": {
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "officer_id": {
+          "autoincrement": false,
+          "name": "officer_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "details": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "details",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "served": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "served",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "default": "'current_timestamp()'",
+          "autoincrement": false,
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "demotions": {
+      "name": "demotions",
+      "columns": {
+        "demotions_id": {
+          "autoincrement": true,
+          "name": "demotions_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "week_number": {
+          "autoincrement": false,
+          "name": "week_number",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "demotion_for": {
+          "autoincrement": false,
+          "name": "demotion_for",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "demotion_by": {
+          "autoincrement": false,
+          "name": "demotion_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reasoning": {
+          "autoincrement": false,
+          "name": "reasoning",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "demotions_id_UNIQUE": {
+          "name": "demotions_id_UNIQUE",
+          "columns": [
+            "demotions_id"
+          ]
+        }
+      }
+    },
+    "incidents": {
+      "name": "incidents",
+      "columns": {
+        "incident_id": {
+          "autoincrement": true,
+          "name": "incident_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "title": {
+          "autoincrement": false,
+          "name": "title",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "autoincrement": false,
+          "name": "type",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "location": {
+          "autoincrement": false,
+          "name": "location",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_by": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "created_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_date_time": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "created_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "updated_by": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "updated_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "updated_date_time": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "updated_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "incident_id_UNIQUE": {
+          "name": "incident_id_UNIQUE",
+          "columns": [
+            "incident_id"
+          ]
+        }
+      }
+    },
+    "incident_arrests": {
+      "name": "incident_arrests",
+      "columns": {
+        "arrest_id": {
+          "autoincrement": true,
+          "name": "arrest_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "incident_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "incident_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "character_id": {
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "time": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "time",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fine": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "fine",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "plea": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "plea",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "items_returned": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "items_returned",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "items_returned_by": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "items_returned_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "items_returned_date_time": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "items_returned_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "arrested_by": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "arrested_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "arrested_date_time": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "arrested_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "processed_by": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "processed_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "processed_date_time": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "processed_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sealed": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "sealed",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sealed_by": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "sealed_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "arrest_id": {
+          "name": "arrest_id",
+          "columns": [
+            "arrest_id"
+          ]
+        }
+      }
+    },
+    "incident_arrests_charges": {
+      "name": "incident_arrests_charges",
+      "columns": {
+        "charge_id": {
+          "autoincrement": true,
+          "name": "charge_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "penal_code_charge_id": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "penal_code_charge_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "arrest_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "arrest_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "enhancements": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "enhancements",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "counts": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "counts",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "added_by": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "added_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "added_date_time": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "charge_id": {
+          "name": "charge_id",
+          "columns": [
+            "charge_id"
+          ]
+        }
+      }
+    },
+    "incident_arrests_items": {
+      "name": "incident_arrests_items",
+      "columns": {
+        "item_id": {
+          "autoincrement": true,
+          "name": "item_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "arrest_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "arrest_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "default": "''0''",
+          "autoincrement": false,
+          "name": "type",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "item": {
+          "autoincrement": false,
+          "name": "item",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_by": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "added_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_date_time": {
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "item_id": {
+          "name": "item_id",
+          "columns": [
+            "item_id"
+          ]
+        }
+      }
+    },
+    "incident_arrests_mugshots": {
+      "name": "incident_arrests_mugshots",
+      "columns": {
+        "mugshot_id": {
+          "autoincrement": true,
+          "name": "mugshot_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "arrest_id": {
+          "autoincrement": false,
+          "name": "arrest_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "mugshot_title": {
+          "autoincrement": false,
+          "name": "mugshot_title",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "mugshot_url": {
+          "autoincrement": false,
+          "name": "mugshot_url",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_by": {
+          "autoincrement": false,
+          "name": "added_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_by_date_time": {
+          "autoincrement": false,
+          "name": "added_by_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "mugshot_id": {
+          "name": "mugshot_id",
+          "columns": [
+            "mugshot_id"
+          ]
+        }
+      }
+    },
+    "incident_evidence": {
+      "name": "incident_evidence",
+      "columns": {
+        "evidence_id": {
+          "autoincrement": true,
+          "name": "evidence_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "incident_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "incident_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "default": "''0''",
+          "autoincrement": false,
+          "name": "type",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "evidence": {
+          "autoincrement": false,
+          "name": "evidence",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_by": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "added_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_date_time": {
+          "default": "''0000-00-00 00:00:00''",
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "evidence_id": {
+          "name": "evidence_id",
+          "columns": [
+            "evidence_id"
+          ]
+        }
+      }
+    },
+    "incident_officers": {
+      "name": "incident_officers",
+      "columns": {
+        "officers_id": {
+          "autoincrement": true,
+          "name": "officers_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "incident_id": {
+          "autoincrement": false,
+          "name": "incident_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "character_id": {
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_by": {
+          "autoincrement": false,
+          "name": "added_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_date_time": {
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "was_injured": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "was_injured",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "officers_id_UNIQUE": {
+          "name": "officers_id_UNIQUE",
+          "columns": [
+            "officers_id"
+          ]
+        }
+      }
+    },
+    "incident_persons": {
+      "name": "incident_persons",
+      "columns": {
+        "persons_id": {
+          "autoincrement": true,
+          "name": "persons_id",
+          "type": "int(10) unsigned",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "incident_id": {
+          "autoincrement": false,
+          "name": "incident_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "character_id": {
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "phone_number": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "phone_number",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "type": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "type",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "added_by": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "added_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "added_date_time": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "incident_reports": {
+      "name": "incident_reports",
+      "columns": {
+        "report_id": {
+          "autoincrement": true,
+          "name": "report_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "incident_id": {
+          "autoincrement": false,
+          "name": "incident_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "type",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "report": {
+          "autoincrement": false,
+          "name": "report",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_by": {
+          "autoincrement": false,
+          "name": "added_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_date_time": {
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {
+        "idx_incident_reports_incident_id": {
+          "name": "idx_incident_reports_incident_id",
+          "columns": [
+            "incident_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "report_id": {
+          "name": "report_id",
+          "columns": [
+            "report_id"
+          ]
+        }
+      }
+    },
+    "incident_tags": {
+      "name": "incident_tags",
+      "columns": {
+        "tag_id": {
+          "autoincrement": true,
+          "name": "tag_id",
+          "type": "int(10) unsigned",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "incident_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "incident_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "value": {
+          "autoincrement": false,
+          "name": "value",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "background_color": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "background_color",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "text_color": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "text_color",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_by": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "added_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "added_date_time": {
+          "default": "''0000-00-00 00:00:00''",
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "tag_id": {
+          "name": "tag_id",
+          "columns": [
+            "tag_id"
+          ]
+        }
+      }
+    },
+    "items": {
+      "name": "items",
+      "columns": {
+        "name": {
+          "default": "''item''",
+          "autoincrement": false,
+          "name": "name",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "label": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "label",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_weapon": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "is_weapon",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_drug": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "is_drug",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_food": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "is_food",
+          "type": "tinyint",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "login": {
+      "name": "login",
+      "columns": {
+        "character_id": {
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "password": {
+          "autoincrement": false,
+          "name": "password",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reset_passphrase": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "reset_passphrase",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "reset_passphrase_date": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "reset_passphrase_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "logs": {
+      "name": "logs",
+      "columns": {
+        "logId": {
+          "autoincrement": true,
+          "name": "logId",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "note": {
+          "autoincrement": false,
+          "name": "note",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "timestamp": {
+          "autoincrement": false,
+          "name": "timestamp",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "loggedBy": {
+          "autoincrement": false,
+          "name": "loggedBy",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "data": {
+          "autoincrement": false,
+          "name": "data",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "penal_code_charges": {
+      "name": "penal_code_charges",
+      "columns": {
+        "charge_id": {
+          "autoincrement": true,
+          "name": "charge_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "title": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "title",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "label": {
+          "autoincrement": false,
+          "name": "label",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "autoincrement": false,
+          "name": "name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "autoincrement": false,
+          "name": "type",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "definition": {
+          "autoincrement": false,
+          "name": "definition",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "time": {
+          "autoincrement": false,
+          "name": "time",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fine": {
+          "autoincrement": false,
+          "name": "fine",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "result": {
+          "autoincrement": false,
+          "name": "result",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "points": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "points",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "added_date_time": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "penal_code_definitions": {
+      "name": "penal_code_definitions",
+      "columns": {
+        "definition_id": {
+          "autoincrement": true,
+          "name": "definition_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "label": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "label",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "value": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "value",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "definition": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "definition",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "added_date_time": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "penal_code_enhancements": {
+      "name": "penal_code_enhancements",
+      "columns": {
+        "enhancement_id": {
+          "autoincrement": true,
+          "name": "enhancement_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "label": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "label",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "name": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "abbreviation": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "abbreviation",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "definition": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "definition",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "multiplier": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "multiplier",
+          "type": "double",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "result": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "result",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "added_date_time": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "penal_code_titles": {
+      "name": "penal_code_titles",
+      "columns": {
+        "title_id": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "title_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "name": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "ranks": {
+      "name": "ranks",
+      "columns": {
+        "rank_order": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "rank_order",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rank_name": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "rank_name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "ranks_bcso": {
+      "name": "ranks_bcso",
+      "columns": {
+        "rank_order": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "rank_order",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rank": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "rank",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "ranks_fib": {
+      "name": "ranks_fib",
+      "columns": {
+        "rank_order": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "rank_order",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rank": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "rank",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "ranks_ftp": {
+      "name": "ranks_ftp",
+      "columns": {
+        "rank_order": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "rank_order",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rank": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "rank",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "ranks_gw": {
+      "name": "ranks_gw",
+      "columns": {
+        "rank_order": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "rank_order",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rank": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "rank",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "ranks_ia": {
+      "name": "ranks_ia",
+      "columns": {
+        "rank_order": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "rank_order",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rank": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "rank",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "ranks_management": {
+      "name": "ranks_management",
+      "columns": {
+        "rank_order": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "rank_order",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rank": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "rank",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "ranks_sahp": {
+      "name": "ranks_sahp",
+      "columns": {
+        "rank_order": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "rank_order",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rank": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "rank",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "ranks_swat": {
+      "name": "ranks_swat",
+      "columns": {
+        "rank_order": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "rank_order",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rank": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "rank",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "roster": {
+      "name": "roster",
+      "columns": {
+        "character_id": {
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "callsign": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "callsign",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "discord_id": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "discord_id",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rank": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "rank",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "status",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "timezone": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "timezone",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "last_promotion_date": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "last_promotion_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "joined_date": {
+          "autoincrement": false,
+          "name": "joined_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "roster_bcso": {
+      "name": "roster_bcso",
+      "columns": {
+        "character_id": {
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rank": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "rank",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "note": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "note",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "joined_date": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "joined_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "roster_certs": {
+      "name": "roster_certs",
+      "columns": {
+        "cert_id": {
+          "autoincrement": true,
+          "name": "cert_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "character_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "default": "''0''",
+          "autoincrement": false,
+          "name": "type",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "notes": {
+          "autoincrement": false,
+          "name": "notes",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_date_time": {
+          "default": "''0000-00-00 00:00:00''",
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "cert_id": {
+          "name": "cert_id",
+          "columns": [
+            "cert_id"
+          ]
+        }
+      }
+    },
+    "roster_changes": {
+      "name": "roster_changes",
+      "columns": {
+        "roster_change_id": {
+          "autoincrement": true,
+          "name": "roster_change_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "changed_officer": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "changed_officer",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "changed_type": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "changed_type",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "changed_text": {
+          "autoincrement": false,
+          "name": "changed_text",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "changed_by": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "changed_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "changed_date_time": {
+          "default": "''0000-00-00 00:00:00''",
+          "autoincrement": false,
+          "name": "changed_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "roster_change_id": {
+          "name": "roster_change_id",
+          "columns": [
+            "roster_change_id"
+          ]
+        }
+      }
+    },
+    "roster_doj": {
+      "name": "roster_doj",
+      "columns": {
+        "character_id": {
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "discord_id": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "discord_id",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rank": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "rank",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "joined_date": {
+          "autoincrement": false,
+          "name": "joined_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "roster_fib": {
+      "name": "roster_fib",
+      "columns": {
+        "character_id": {
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rank": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "rank",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "note": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "note",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "joined_date": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "joined_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "roster_ftp": {
+      "name": "roster_ftp",
+      "columns": {
+        "character_id": {
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rank": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "rank",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "note": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "note",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "joined_date": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "joined_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "roster_gw": {
+      "name": "roster_gw",
+      "columns": {
+        "character_id": {
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rank": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "rank",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "note": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "note",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "joined_date": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "joined_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "roster_ia": {
+      "name": "roster_ia",
+      "columns": {
+        "character_id": {
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rank": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "rank",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "note": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "note",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "joined_date": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "joined_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "roster_management": {
+      "name": "roster_management",
+      "columns": {
+        "character_id": {
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rank": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "rank",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "note": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "note",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "joined_date": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "joined_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "roster_notes": {
+      "name": "roster_notes",
+      "columns": {
+        "note_id": {
+          "autoincrement": true,
+          "name": "note_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "character_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "autoincrement": false,
+          "name": "type",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "note": {
+          "autoincrement": false,
+          "name": "note",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_by": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "added_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_date_time": {
+          "default": "''0000-00-00 00:00:00''",
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "noteId": {
+          "name": "noteId",
+          "columns": [
+            "note_id"
+          ]
+        }
+      }
+    },
+    "roster_sahp": {
+      "name": "roster_sahp",
+      "columns": {
+        "character_id": {
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rank": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "rank",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "note": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "note",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "joined_date": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "joined_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "roster_strikes": {
+      "name": "roster_strikes",
+      "columns": {
+        "strike_id": {
+          "autoincrement": true,
+          "name": "strike_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "character_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "default": "''0''",
+          "autoincrement": false,
+          "name": "type",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reason": {
+          "autoincrement": false,
+          "name": "reason",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "authorized_by": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "authorized_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_by": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "added_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_date_time": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "strike_id": {
+          "name": "strike_id",
+          "columns": [
+            "strike_id"
+          ]
+        }
+      }
+    },
+    "roster_swat": {
+      "name": "roster_swat",
+      "columns": {
+        "character_id": {
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rank": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "rank",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "note": {
+          "default": "''''",
+          "autoincrement": false,
+          "name": "note",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "joined_date": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "joined_date",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "tags": {
+      "name": "tags",
+      "columns": {
+        "tag_id": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "tag_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tag_value": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "tag_value",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tag_color": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "tag_color",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "time": {
+      "name": "time",
+      "columns": {
+        "character_id": {
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "on_duty_time": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "on_duty_time",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "time_extra": {
+      "name": "time_extra",
+      "columns": {
+        "time_id": {
+          "autoincrement": true,
+          "name": "time_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "character_id": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "character_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reasoning": {
+          "autoincrement": false,
+          "name": "reasoning",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "extra_time": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "extra_time",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "week_number": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "week_number",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_by": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "added_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "added_date_time": {
+          "default": "''0000-00-00 00:00:00''",
+          "autoincrement": false,
+          "name": "added_date_time",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "time_id": {
+          "name": "time_id",
+          "columns": [
+            "time_id"
+          ]
+        }
+      }
+    },
+    "vehicles": {
+      "name": "vehicles",
+      "columns": {
+        "model_name": {
+          "default": "''vehicle''",
+          "autoincrement": false,
+          "name": "model_name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "label": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "label",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "id",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "votes": {
+      "name": "votes",
+      "columns": {
+        "vote_id": {
+          "autoincrement": true,
+          "name": "vote_id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "vote_week": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "vote_week",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "voted_by": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "voted_by",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "vote_for": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "vote_for",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "vote": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "vote",
+          "type": "bigint(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reasoning": {
+          "default": "'NULL'",
+          "autoincrement": false,
+          "name": "reasoning",
+          "type": "longtext",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "vote_id": {
+          "name": "vote_id",
+          "columns": [
+            "vote_id"
+          ]
+        }
+      }
+    }
+  },
+  "schemas": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}
