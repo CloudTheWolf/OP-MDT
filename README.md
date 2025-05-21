@@ -1,9 +1,13 @@
-# v3-mdt-server
+# OP-MDT
+
+The OP-MDT Contains 2 parts.
+First the Backend Server created with Bun and Hono
+Second the Frontend with React and Vite
 
 To install dependencies:
 
 ```bash
-bun install
+bun run install 
 ```
 
 To run:
