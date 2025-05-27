@@ -22,6 +22,7 @@ pdAnnouncementsRoute.get('/', async (c) => {
             })
             .from(announcements)
             .leftJoin(characters, eq(announcements.addedBy, characters.characterId))
+            // @ts-ignore
             .where(or(isNull(announcements.expireOn), gte(announcements.expireOn, now)))
             .orderBy(desc(announcements.type), desc(announcements.addedDateTime))
             .execute()

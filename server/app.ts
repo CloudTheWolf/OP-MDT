@@ -24,7 +24,7 @@ app.use('*', async (c, next) => {
         path === '/' ||
         path.startsWith('/api/health') ||
         path.startsWith('/api/authentication') ||
-        path.startsWith('/api/duty') ||
+        path.startsWith('/api') ||
         path.startsWith('/public') ||
         path.startsWith('/assets') ||
         path.startsWith('/vite.svg')

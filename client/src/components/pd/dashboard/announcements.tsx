@@ -1,10 +1,10 @@
 import {useAuth} from "@/context/auth-context";
 import {useEffect, useState} from "react";
-import type {Announcement, DraftContent} from '@/types/Announcement'
+import type {DraftContent, Inmates} from '@/types/Inmates'
 
 export function Announcements() {
     const { user, isAuthenticated } = useAuth()
-    const [announcements, setAnnouncements] = useState<Announcement[]>([])
+    const [announcements, setAnnouncements] = useState<Inmates[]>([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -12,7 +12,7 @@ export function Announcements() {
             try {
                 const res = await fetch('/api/pd/announcements', { credentials: 'include', headers: { 'x-opfw': 'any' } })
                 if (!res.ok) throw new Error('Failed to fetch announcements')
-                const data: Announcement[] = await res.json()
+                const data: Inmates[] = await res.json()
                 setAnnouncements(data)
             } catch (err) {
                 console.error('Error loading announcements:', err)

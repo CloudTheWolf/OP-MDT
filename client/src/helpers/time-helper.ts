@@ -56,3 +56,28 @@ export function getFormattedSeconds(seconds: number): string {
 
     return duration.format('hh:mm:ss', { trim: false });
 }
+
+export function formatDuration(seconds: number): string {
+    const abs = Math.abs(seconds);
+    const sign = seconds < 0 ? "-" : "";
+
+    const SECONDS_IN_YEAR = 31536000;
+    const SECONDS_IN_DAY = 86400;
+    const SECONDS_IN_HOUR = 3600;
+    const SECONDS_IN_MINUTE = 60;
+
+    const years = Math.floor(abs / SECONDS_IN_YEAR);
+    const days = Math.floor((abs % SECONDS_IN_YEAR) / SECONDS_IN_DAY);
+    const hours = Math.floor((abs % SECONDS_IN_DAY) / SECONDS_IN_HOUR);
+    const minutes = Math.floor((abs % SECONDS_IN_HOUR) / SECONDS_IN_MINUTE);
+    const secs = abs % SECONDS_IN_MINUTE;
+
+    const parts = [];
+    if (years) parts.push(`${years}y`);
+    if (days) parts.push(`${days}d`);
+    if (hours) parts.push(`${hours}h`);
+    if (minutes) parts.push(`${minutes}m`);
+    if (secs || parts.length === 0) parts.push(`${secs}s`);
+
+    return `${sign}${parts.join(" ")}`;
+}

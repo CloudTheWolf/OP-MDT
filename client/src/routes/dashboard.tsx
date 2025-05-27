@@ -3,6 +3,8 @@ import {createFileRoute} from '@tanstack/react-router'
 import {Announcements} from "@/components/pd/dashboard/announcements";
 import {Warrants} from "@/components/pd/dashboard/warrents_bolos";
 import {Duty} from '@/components/shared/duty';
+import {Inmates} from "@/components/pd/dashboard/inmates";
+import {Holds} from "@/components/pd/dashboard/vehicle-holds";
 
 export const Route = createFileRoute('/dashboard')({
   component: RouteComponent,
@@ -28,10 +30,14 @@ function RouteComponent() {
                       </div>
                   </div>
                   <div className="h-[30vh]">
-                      <div className="rounded-xl bg-muted/50 h-full" />
+                      <div className="rounded-xl bg-muted/50 h-full">
+                          <Inmates />
+                      </div>
                   </div>
                   <div className="h-[30vh]">
-                      <div className="rounded-xl bg-muted/50 h-full" />
+                      <div className="rounded-xl bg-muted/50 h-full">
+                          <Holds />
+                      </div>
                   </div>
               </div>
 

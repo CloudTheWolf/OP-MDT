@@ -1,40 +1,40 @@
 import {useAuth} from "@/context/auth-context";
 import {useEffect, useState} from "react";
-import type {Inmate, InmatesResponse} from "@/types/Inmates";
+import type {Hold, HoldsResponse} from "@/types/Holds";
 import {formatDuration} from "@/helpers/time-helper";
 
-export function Inmates() {
+export function Holds() {
     const { user, isAuthenticated } = useAuth();
-    const [inmates, setInmates] = useState<Inmate[]>([]);
+    const [holds, setHolds] = useState<Hold[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchInmates = async () => {
+        const fetchHolds = async () => {
             try {
-                const res = await fetch("/api/pd/inmates", {
+                const res = await fetch("/api/pd/holds", {
                     credentials: "include",
                     headers: { "x-opfw": "any" },
                 });
-                if (!res.ok) throw new Error("Failed to fetch inmates");
+                if (!res.ok) throw new Error("Failed to fetch holds");
 
-                const response: InmatesResponse = await res.json();
-                setInmates(response.inmates.data);
+                const response: HoldsResponse = await res.json();
+                setHolds(response.holds);
             } catch (err) {
-                console.error("Error loading inmates:", err);
+                console.error("Error loading holds:", err);
             } finally {
                 setLoading(false);
             }
         };
 
-        fetchInmates();
+        fetchHolds();
     }, []);
 
-    if (loading) return <div>Loading Inmates...</div>;
-    if (!user || !isAuthenticated || inmates.length === 0)
+    if (loading) return <div>Loading Holds...</div>;
+    if (!user || !isAuthenticated || holds.length === 0)
         return (
             <div className="relative h-full flex flex-col">
                 <div className="p-2 shrink-0">
-                    <h2 className="ml-2 mt-1">Inmates</h2>
+                    <h2 className="ml-2 mt-1">Holds</h2>
                 </div>
                 <div className="flex-1 overflow-y-auto px-2 pb-2 space-y-4" />
             </div>
@@ -43,22 +43,22 @@ export function Inmates() {
     return (
         <div className="relative h-full flex flex-col">
             <div className="p-2 shrink-0">
-                <h2 className="ml-2 mt-1">Inmates</h2>
+                <h2 className="ml-2 mt-1">Holds</h2>
             </div>
             <div className="flex-1 overflow-y-auto px-2 space-y-4">
-                {inmates.map((a) => {
+                {holds.map((a) => {
                     const now = Math.floor(Date.now() / 1000);
-                    const secondsRemaining = a.jail - now;
+                    const secondsRemaining = a.police_impound_expire - now;
                     const formatted = formatDuration(secondsRemaining);
 
                     return (
                         <div
-                            key={a.character_id}
-                            className="rounded border px-4 py-1 shadow-sm bg-white dark:bg-neutral-800"
+                            key={a.owner_cid}
+                            className="rounded-xl border pt-1 px-3 shadow-sm bg-white dark:bg-neutral-800"
                         >
                             <h3 className="font-semibold text-md text-black dark:text-white flex justify-between items-center">
-                                <span>{a.first_name} {a.last_name}</span>
-                                <span className="text-sm whitespace-pre-wrap text-muted-foreground">🕛: {formatted}</span>
+                                <span>{a.first_name} {a.last_name} - {a.label} ({a.plate})</span>
+                                <span className="text-sm whitespace-pre-wrap text-muted-foreground">🕛 {formatted}</span>
                             </h3>
                         </div>
                     );
