@@ -7,6 +7,8 @@ import {authenticationRoute} from './routes/authentication'
 import {requireSession} from './middleware/requireSession'
 import {requireSessionWithApiAccess} from './middleware/requireSessionWithApiAccess'
 import {pdRoute} from "@server/routes/pdRoutes";
+import {GameApi} from "@server/routes/opfw/game-api";
+import {OnDutyRoute} from "@server/routes/shared/on-duty-route";
 
 const app = new Hono()
 
@@ -14,19 +16,15 @@ const app = new Hono()
 
 app.use('*', logger())
 
-const apiRoutes = app.basePath('/api')
-    .route('/health', healthRoute)
-    .route('/authentication', authenticationRoute)
-    .route('/pd', pdRoute)
 
 app.use('*', async (c, next) => {
     const path = new URL(c.req.url).pathname
-
     // Allow public/static routes
     if (
         path === '/' ||
         path.startsWith('/api/health') ||
         path.startsWith('/api/authentication') ||
+        path.startsWith('/api/duty') ||
         path.startsWith('/public') ||
         path.startsWith('/assets') ||
         path.startsWith('/vite.svg')
@@ -34,12 +32,19 @@ app.use('*', async (c, next) => {
         return next()
     }
 
-    if (path.startsWith('/api/')) {
+    if (path.startsWith('/api')) {
         return requireSessionWithApiAccess(c, next)
     }
 
     return requireSession(c, next)
 })
+const apiRoutes = app.basePath('/api')
+    .route('/health', healthRoute)
+    .route('/authentication', authenticationRoute)
+    .route('/pd', pdRoute)
+    .route('/opfw',GameApi)
+    .route('/duty',OnDutyRoute)
+
 
 app.use('*', serveStatic({ root: './client/dist' }))
 app.use('*', serveStatic({ path: './client/dist/index.html' }))

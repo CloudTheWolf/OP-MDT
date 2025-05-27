@@ -14,6 +14,7 @@ timeRoute.get('/:characterId', async (c) => {
                 onDutyTime: time.onDutyTime,
             })
             .from(time)
+            //@ts-ignore
             .where(eq(time.characterId, characterId))
             .execute()
 

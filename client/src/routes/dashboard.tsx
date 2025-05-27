@@ -1,6 +1,8 @@
 import {UIShellPd} from '@/components/ui/ui-shell-pd'
 import {createFileRoute} from '@tanstack/react-router'
-import {Announcements} from '@/components/pd/dashboard/announcements'
+import {Announcements} from "@/components/pd/dashboard/announcements";
+import {Warrants} from "@/components/pd/dashboard/warrents_bolos";
+import {Duty} from '@/components/shared/duty';
 
 export const Route = createFileRoute('/dashboard')({
   component: RouteComponent,
@@ -9,20 +11,33 @@ export const Route = createFileRoute('/dashboard')({
 function RouteComponent() {
   return (
       <UIShellPd>
-        <div className="flex flex-1 flex-col gap-4 p-4">
-          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="aspect-video rounded-xl bg-muted/50" />
-              <div className="aspect-video rounded-xl bg-muted/50 pb-3 max-h-[420px]">
-                  <Announcements />
+          <div className="grid grid-cols-3 gap-4 p-4 h-[92vh] max-w-full">
+              <div className="grid grid-rows-3">
+                  <div className="row-span-3 h-[92vh]">
+                      <div className="rounded-xl bg-muted/50 h-full overflow-hidden">
+                          <Warrants/>
+                      </div>
+                  </div>
+
               </div>
-            <div className="aspect-video rounded-xl bg-muted/50" />
+
+              <div className="grid grid-rows-3 h-[92vh]">
+                  <div className="h-[30vh]">
+                      <div className="rounded-xl bg-muted/50 h-full overflow-hidden">
+                          <Announcements />
+                      </div>
+                  </div>
+                  <div className="h-[30vh]">
+                      <div className="rounded-xl bg-muted/50 h-full" />
+                  </div>
+                  <div className="h-[30vh]">
+                      <div className="rounded-xl bg-muted/50 h-full" />
+                  </div>
+              </div>
+
+              <Duty/>
           </div>
-            <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-                <div className="aspect-video rounded-xl bg-muted/50" />
-                <div className="aspect-video rounded-xl bg-muted/50" />
-                <div className="aspect-video rounded-xl bg-muted/50" />
-            </div>
-        </div>
+
       </UIShellPd>
   )
 }
